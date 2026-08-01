@@ -1,12 +1,17 @@
-const http = require("http")
-const PORT = 3000
+const express = require("express");
+const http = require("http");
+const path = require("path");
+const PORT = 3000;
 
-const server = http.createServer((req, res) => {
-  res.write("On the way to being a full snack engineer!! 2")
-  res.end()
-})
+const app = express();
+const server = http.createServer();
 
-server.listen(PORT)
+app.get("/", (req, res) => {
+  const indexFilePath = path.resolve("index.html");
+  res.sendFile(indexFilePath);
+});
 
-console.log(`Listening on port ${PORT}`)
-
+server.on("request", app);
+server.listen(PORT, () => {
+  console.log(`🎉 Listening on port ${PORT}`);
+});
