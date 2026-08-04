@@ -9,7 +9,7 @@
     <h1>Frontend masters fullstack v3</h1>
     <script>
       const protocol = window.location.protocol === "https:" ? "wss" : "ws";
-      const ws = new WebSocket(`${protocol}://${window.location.host}:3000`);
+      const ws = new WebSocket(`${protocol}://${window.location.host}`);
 
       ws.addEventListener("message", (event) => {
         console.log(event.data);
