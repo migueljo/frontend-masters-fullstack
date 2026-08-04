@@ -10,7 +10,7 @@
     <script>
       const protocol = window.location.protocol === "https:" ? "wss" : "ws";
       const ws = new WebSocket(`${protocol}://${window.location.host}`);
-
+      console.log("Establishing connection to websockets!");
       ws.addEventListener("message", (event) => {
         console.log(event.data);
       });
